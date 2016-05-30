@@ -29,7 +29,8 @@ class ViewController: UIViewController , UICollectionViewDataSource  , UICollect
         
         // コレクションビュー作成
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: flowLayout)
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+//        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.registerClass(CustomUICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
@@ -37,7 +38,7 @@ class ViewController: UIViewController , UICollectionViewDataSource  , UICollect
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell : CustomUICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as CustomUICollectionViewCell
+        let cell : CustomUICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CustomUICollectionViewCell
         cell.textLabel?.text = indexPath.row.description
         cell.backgroundColor = UIColor.redColor()
         
